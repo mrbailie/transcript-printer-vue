@@ -1,63 +1,17 @@
 <template>
-  <router-link class="event-link" :to="{ name: 'student-show', params: { id: '1' } }">
+  <router-link class="event-link" :to="{ name: 'student-show', params: { id: student.id } }">
     <div class="event-card -shadow">
       <span class="eyebrow">{{ student.id }}</span>
       <h4 class="title">{{ student.name }}</h4>
-      <span>{{ student.transcripts.length }} quarters</span>
+      <BaseIcon name="users">{{ student.transcripts.length }} courses</BaseIcon>
     </div>
   </router-link>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      student: {
-        id: 111111111,
-        name: 'student name',
-        transcripts: [
-          {
-            Quarter: 'B894',
-            Courses: [
-              {
-                CourseTitle: 'MATH&146',
-                Grade: 4.0
-              },
-              {
-                CourseTitle: 'ENGL&101',
-                Grade: 4.0
-              },
-              {
-                CourseTitle: 'BIO 160',
-                Grade: 4.0
-              }
-            ]
-          },
-          {
-            Quarter: 'B893',
-            Courses: [
-              {
-                CourseTitle: 'MATH 094',
-                Grade: 4.0
-              }
-            ]
-          },
-          {
-            Quarter: 'B892',
-            Courses: [
-              {
-                CourseTitle: 'MATH 096',
-                Grade: 4.0
-              },
-              {
-                CourseTitle: 'ENGL 099',
-                Grade: 4.0
-              }
-            ]
-          }
-        ]
-      }
-    }
+  props: {
+    student: Object
   }
 }
 </script>
