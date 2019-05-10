@@ -1,24 +1,29 @@
-import Vue from "vue";
-import Router from "vue-router";
-import Home from "./views/Home.vue";
+import Vue from 'vue'
+import Router from 'vue-router'
+import StudentList from './views/StudentList.vue'
+import StudentShow from './views/StudentShow.vue'
+import StudentCreate from './views/StudentCreate.vue'
 
-Vue.use(Router);
+Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
-      path: "/",
-      name: "home",
-      component: Home
+      path: '/',
+      name: 'student-list',
+      component: StudentList
     },
     {
-      path: "/about",
-      name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () =>
-        import(/* webpackChunkName: "about" */ "./views/About.vue")
+      path: '/student/:id',
+      name: 'student-show',
+      component: StudentShow,
+      props: true
+    },
+    {
+      path: '/student/create',
+      name: 'student-create',
+      component: StudentCreate
     }
   ]
-});
+})
